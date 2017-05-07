@@ -1,0 +1,37 @@
+{
+  "devDependencies": {
+    "font-awesome": "~4.7.0",
+    "gulp": "^3.8.11",
+    "gulp-autoprefixer": "^2.1.0",
+    "gulp-concat": "^2.6.0",
+    "gulp-if": "^2.0.2",
+    "gulp-jshint": "^1.11.0",
+    "gulp-minify-css": "^0.4.6",
+    "gulp-notify": "^2.2.0",
+    "gulp-rename": "^1.2.0",
+    "gulp-sass": "^2.0.1",
+    "gulp-size": "^2.1.0",
+    "gulp-sourcemaps": "^1.6.0",
+    "gulp-uglify": "^1.2.0"
+  },
+  "name": "austeve-display-posts",
+  "description": "AUSteve Display Posts",
+  "version": "0.0.1",
+  "main": "gulpfile.js",
+  "dependencies": {
+    "gulp": "^3.8.11"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/australiansteve/wp-plugin-austeve-display-posts"
+  },
+  "author": "AustralianSteve",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/australiansteve/wp-plugin-austeve-display-posts/issues"
+  },
+  "homepage": "https://github.com/australiansteve/wp-plugin-austeve-display-posts"
+}
