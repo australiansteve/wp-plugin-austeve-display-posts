@@ -39,6 +39,7 @@ class AUSteve_Display_Posts {
 	    	'post_type' => 'post',
 	        'category' => '',
 	        'format' => 'single',
+	        'posts_per_page' => 5
 	    ), $atts );
 	    
 	    extract( $atts );
@@ -46,9 +47,8 @@ class AUSteve_Display_Posts {
 	    $args = array(
 	        'post_type' => $post_type,
 	        'post_status' => array('publish'),
-	        'posts_per_page' => -1,
-	        'paged'         => false,
-
+	        'posts_per_page' => $posts_per_page,
+	        'paged'	=> get_query_var('paged') ? get_query_var('paged') : 1,
 	    );
 
 	    if ($category != '' && $post_type == 'post')
@@ -75,6 +75,15 @@ class AUSteve_Display_Posts {
 <?php
 		    endwhile;
 		    ?>
+			    <!-- pagination -->
+			    <div class='row pagination'>
+				    <div class='small-6 columns page-link newer-posts'>
+						<?php previous_posts_link( "<< Newer posts" ); ?>
+				    </div>
+				    <div class='small-6 columns text-right page-link older-posts'>
+						<?php next_posts_link( "Older posts >>"); ?>
+				    </div>
+			    </div>
 		    </div>
 		    <?php
 		else:
