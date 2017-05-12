@@ -26,11 +26,11 @@ class AUSteve_Display_Posts {
 
 	function austeve_posts_enqueue_style() {
 		wp_enqueue_style( 'jquery-ui-css', 'https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css');
-		wp_enqueue_style( 'austeve-faqs', plugin_dir_url( __FILE__ ). 'style.css' , '' , '1.0'); 
+		wp_enqueue_style( 'austeve-posts', plugin_dir_url( __FILE__ ). 'style.css' , '' , '1.0'); 
 	}
 
 	function austeve_posts_enqueue_script() {
-		wp_enqueue_script( 'austeve-faqs-js', plugin_dir_url( __FILE__ ). 'js/faqs.js' , array( 'jquery-ui-accordion', 'jquery' ) , '1.0'); 
+		wp_enqueue_script( 'austeve-posts', plugin_dir_url( __FILE__ ). 'js/display-posts.js' , array( 'jquery-ui-accordion', 'jquery' ) , '1.0'); 
 	}
 
 	function shortcode_output($atts, $content)
