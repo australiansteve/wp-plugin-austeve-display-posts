@@ -27,11 +27,11 @@ gulp.task('deploy', function() {
 		'*.css',
 		'js/*.js'];
 
-	var destThemeDev = 'C:/wamp/www/theme-dev/wp-content/plugins/austeve-display-posts';
-	var destCanvas = 'C:/wamp/www/canvas/wp-content/plugins/austeve-display-posts';
+	var destSSJ = '/Applications/MAMP/htdocs/ssj/wp-content/plugins/austeve-display-posts';
+	var destCanvas = '/Applications/MAMP/htdocs/canvas/wp-content/plugins/austeve-display-posts';
 
 	return gulp.src(files, {base:"."})
-    		.pipe(gulpif(argv.canvas, gulp.dest(destCanvas), gulp.dest(destThemeDev)));
+    		.pipe(gulpif(argv.canvas, gulp.dest(destCanvas), gulp.dest(destSSJ)));
 });
 
 gulp.task('styles', function() {

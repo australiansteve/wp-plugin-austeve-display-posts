@@ -123,7 +123,7 @@ class AUSteve_Display_Posts {
 
 	    	
 		else:
-	    	echo "<div id='faqs'>No posts found</div>";
+	    	echo "<div id='no-posts'>No posts found</div>";
 		endif;
 		wp_reset_query();
 
