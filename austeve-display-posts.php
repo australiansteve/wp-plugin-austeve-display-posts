@@ -57,8 +57,8 @@ class AUSteve_Display_Posts {
 	        'post_status' => array('publish'),
 	        'posts_per_page' => $posts_per_page,
 	        'paged'	=> get_query_var('paged') ? get_query_var('paged') : 1,
+	        'apply_filters' => true //pre_get_posts filters shoud always be run from what I can tell. This may not be the case, if not add a parameter to atts and use that
 	    );
-
 
 	    if (!empty($category_name) && $post_type == 'post')
 	    {
@@ -77,21 +77,22 @@ class AUSteve_Display_Posts {
 		    );
 		}	
 
-	    error_log("Display posts query: ". print_r($args, true));
-	    query_posts( $args );
+	    //error_log("Display posts args: ". print_r($args, true));
 	    
 	    $format == 'archive' ? '' : $format;
 	    error_log("Format: ". print_r($format, true));
 		
 		ob_start();
-	    if ( have_posts() ):
+
+		$my_secondary_loop = new WP_Query($args);
+		if( $my_secondary_loop->have_posts() ):
 
 			if (!empty($container_class))
 				echo "<div class='".$container_class."'>";;
 	    	
-		    while ( have_posts() ) :
-		        the_post();
-
+		    while( $my_secondary_loop->have_posts() ): $my_secondary_loop->the_post();
+		       //The secondary loop
+		
 			    echo "<div id='".$post_type."-".get_the_id()."' class='austeve-display-posts ".$post_class."'>";
 
 				if ($post_type == 'page') :
@@ -121,11 +122,10 @@ class AUSteve_Display_Posts {
 			    <?php
 			endif;
 
-	    	
 		else:
 	    	echo "<div id='no-posts'>No posts found</div>";
-		endif;
-		wp_reset_query();
+	    endif;
+		wp_reset_postdata();
 
     	return ob_get_clean();
 	}
