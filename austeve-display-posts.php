@@ -87,13 +87,14 @@ class AUSteve_Display_Posts {
 		$my_secondary_loop = new WP_Query($args);
 		if( $my_secondary_loop->have_posts() ):
 
-			if (!empty($container_class))
-				echo "<div class='".$container_class."'>";;
-	    	
+			if (!empty($container_class)) :
+				echo "<div class='".$container_class."'>";
+			endif;
+
 		    while( $my_secondary_loop->have_posts() ): $my_secondary_loop->the_post();
 		       //The secondary loop
 		
-			    echo "<div id='".$post_type."-".get_the_id()."' class='austeve-display-posts ".$post_class."'>";
+			    echo "<div id='".$post_type."-".get_the_id()."' class='austeve-display-posts ".$post_type." ".$post_class."'>";
 
 				if ($post_type == 'page') :
 		    		the_content();
@@ -105,8 +106,9 @@ class AUSteve_Display_Posts {
 
 		    endwhile;
 
-	    	if (!empty($container_class))
+	    	if (!empty($container_class)) :
 	    		echo "</div>";
+			endif;
 
 		    if ($show_pagination == 'true'):
 			    ?>
